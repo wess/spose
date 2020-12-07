@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spose.io</title>
+  <title>__404__</title>
 
   <script src="spose.js"></script>
 
@@ -33,7 +33,7 @@
   <main>
     <section id="renderer">
       <div style="margin: 100px auto">
-        <h1 style="text-align: center;">Loading...</h1>
+        <h1 style="text-align: center;">404 Not found.</h1>
       </div>
     </section>
   </main>
@@ -59,22 +59,25 @@
       })
     }
 
-    $.getJSON("https://raw.githubusercontent.com/wess/spose/master/links.json?2020-12-07T21:41:11.494Z", function(data) { 
-      var clip = data[sha]
+    function renderLink() {
+      $.getJSON("{{LINKS_PATH}}", function(data) { 
+        var clip = data[sha]
 
-      if(!clip) {
-        return
-      }
+        if(!clip) {return}
 
-      $('#clip-name').text(sha)
-      $('#download-link').attr("href", data['download'])
+        $('#clip-name').text(sha)
+        $('#download-link').attr("href", data['download'])
 
-      if(clip.type == 'image') {
-        renderImage(clip.url)
-      } else {
-        renderText(clip.url)
-      }
-    })
+        if(clip.type == 'image') {
+          renderImage(clip.url)
+        } else {
+          renderText(clip.url)
+        }
+      })
+      .fail(function() {
+        renderLink()
+      })
+    }
   </script>
 </body>
 </html>
