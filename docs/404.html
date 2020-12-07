@@ -60,7 +60,7 @@
     }
 
     function renderLink() {
-      $.getJSON("{{LINKS_PATH}}", function(data) { 
+      $.getJSON("https://raw.githubusercontent.com/wess/spose/master/links.json?2020-12-07T21:49:01.235Z", function(data) { 
         var clip = data[sha]
 
         if(!clip) {return}
