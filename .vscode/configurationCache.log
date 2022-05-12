@@ -1,0 +1,1 @@
+{"buildTargets":["build","check","clean","clippy","default","dev","docs","fmt","help","install-bump","install-edit","install-watch","lint","make","release","setup","test","watch"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
